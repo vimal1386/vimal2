@@ -1,20 +1,19 @@
+
+
+
+
+	  package Assignmentproject;
+
+import java.text.DecimalFormat;
+
 class DistanceCalculator {
-
-
-
 	   static double calcDist(Point p1, Point p2) {
 	        double dist = Math.sqrt(((p2.getX() - p1.getX()) * (p2.getX() - p1.getX()))
 	                + (p2.getY() - p1.getY()) * (p2.getY() - p1.getY()));
 	        return dist;
 	    }
-
-
-
 	}
-
-
-
-	public class Point {
+class Point {
 
 
 
@@ -73,13 +72,8 @@ class DistanceCalculator {
 	        return "Point [x=" + x + ", y=" + y + "]";
 	    }
 	}
-
-
- class Main {
-
-
-
-	   public static void main(String[] args) {
+public class Main {
+	 public static void main(String[] args) {
 	        // TODO Auto-generated method stub
 
 
@@ -104,4 +98,6 @@ class DistanceCalculator {
 
 
 	   }
-	}
+	
+
+}
