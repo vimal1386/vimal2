@@ -1,58 +1,62 @@
 
 
 public class SampleError {
-	static double absolute;
-    static double relative;
-    static double percentageError;
-    public static double getAbsoluteError(double av, double ev)
-    {
-        if(av==0)
-        {
-            System.out.println("av==0 exit");
-        }
-        else {
-        absolute=ev-av;
-        
-        }
-        return absolute;
+    static String pattern = "###.000";
+    static DecimalFormat df = new DecimalFormat(pattern);
+
+
+
+   static double getAbsoluteError(double av, double ev) {
+        double ae;
+        ae = ev - av;
+        System.out.println("Absolute error is units " + df.format(ae));
+        return ae;
+
+
+
+   }
+
+
+
+   static double getRelativeError(double av, double ae) {
+        double re;
+        re = ae / av;
+        System.out.println("Relative error is units "+ df.format(re));
+        return re;
+
+
+
+   }
+
+
+
+   static double getPercentageError(double av, double ae) {
+        double pe;
+        pe = (ae / av) * 100;
+        System.out.println("Percentage error is units "+ df.format(pe));
+        return pe;
     }
-    public static double getRelativeError(double av,double ev)
-    {
-        if(av==0)
-        {
-        System.out.println("av==0 exit");
-        }
+
+
+
+   public static void main(String[] args) {
+        double num , n;
+        System.out.println("Enter actual value ");
+        Scanner sc = new Scanner(System.in);
+        num = sc.nextInt();
+        System.out.println("Enter expected value ");
+        Scanner scn = new Scanner(System.in);
+        n = scn.nextInt();
+        if (num!=0) {
+            getAbsoluteError(num, n);
+            getRelativeError(num, n);
+            getPercentageError(num, n);
+            }
+                
         else
-        {
-        relative=(absolute/av);
+            System.out.println("Invalid actual value it must be more than zero");
         }
-        return relative;
-    }
-    public static double getPercentageError(double av, double ev)
-    {
-        if(av==0)
-        {
-            System.out.println("Av==0 exit");
-        }
-        else
-        {
-        percentageError=(relative*100);
-        }
-        return percentageError;
-    }
-    public static void main(String[] args) {
-        double absolute=getAbsoluteError(12,34);
-        System.out.printf("Absolute Error is "+"%.3f"+" units",absolute);
-        System.out.println("\n");
-        double relative=getRelativeError(12,34);
-        System.out.printf("Relative Error is "+"%.3f"+" units",relative);
-        System.out.println("\n");
-        double percentage=getPercentageError(12,34);
-        if(percentage>1) {
-        System.out.printf("Percentage Error is "+"%.3f"+" units",percentage);
-        }
-        else
-        {
-            System.out.println("Percentage error will be less than 1:");
-        }
-    }
+
+
+
+}
