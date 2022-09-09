@@ -1,0 +1,58 @@
+
+
+public class SampleError {
+	static double absolute;
+    static double relative;
+    static double percentageError;
+    public static double getAbsoluteError(double av, double ev)
+    {
+        if(av==0)
+        {
+            System.out.println("av==0 exit");
+        }
+        else {
+        absolute=ev-av;
+        
+        }
+        return absolute;
+    }
+    public static double getRelativeError(double av,double ev)
+    {
+        if(av==0)
+        {
+        System.out.println("av==0 exit");
+        }
+        else
+        {
+        relative=(absolute/av);
+        }
+        return relative;
+    }
+    public static double getPercentageError(double av, double ev)
+    {
+        if(av==0)
+        {
+            System.out.println("Av==0 exit");
+        }
+        else
+        {
+        percentageError=(relative*100);
+        }
+        return percentageError;
+    }
+    public static void main(String[] args) {
+        double absolute=getAbsoluteError(12,34);
+        System.out.printf("Absolute Error is "+"%.3f"+" units",absolute);
+        System.out.println("\n");
+        double relative=getRelativeError(12,34);
+        System.out.printf("Relative Error is "+"%.3f"+" units",relative);
+        System.out.println("\n");
+        double percentage=getPercentageError(12,34);
+        if(percentage>1) {
+        System.out.printf("Percentage Error is "+"%.3f"+" units",percentage);
+        }
+        else
+        {
+            System.out.println("Percentage error will be less than 1:");
+        }
+    }
