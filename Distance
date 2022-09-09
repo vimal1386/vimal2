@@ -1,56 +1,107 @@
-public class Point {
-	 private Integer x;
-	    private Integer y;
-	    
-	    public Point(){}
-	    public Point(Integer x, Integer y) {this.x=x; this.y=y;}
-	    public Integer getX() {
+class DistanceCalculator {
+
+
+
+	   static double calcDist(Point p1, Point p2) {
+	        double dist = Math.sqrt(((p2.getX() - p1.getX()) * (p2.getX() - p1.getX()))
+	                + (p2.getY() - p1.getY()) * (p2.getY() - p1.getY()));
+	        return dist;
+	    }
+
+
+
+	}
+
+
+
+	public class Point {
+
+
+
+	   private int x, y;
+
+
+
+	   public int getX() {
 	        return x;
 	    }
-	    public void setX(Integer x) {
+
+
+
+	   public void setX(int x) {
 	        this.x = x;
 	    }
-	    public Integer getY() {
+
+
+
+	   public int getY() {
 	        return y;
 	    }
-	    public void setY(Integer y) {
+
+
+
+	   public void setY(int y) {
 	        this.y = y;
 	    }
-	    @Override
+
+
+
+	   // default constructor
+	    public Point() {
+	    }
+
+
+
+	   // parameterized constructor
+	    public Point(int x, int y) {
+	        this.x = x;
+	        this.y = y;
+	    }
+
+
+
+	   // object constructor
+	    public Point(Point p) {
+	        this.x = p.x;
+	        this.y = p.y;
+	    }
+
+
+
+	   @Override
 	    public String toString() {
 	        return "Point [x=" + x + ", y=" + y + "]";
 	    }
-	    
-	     public double distance() {
-	            return distance(0, 0);
-	        }
-	     public double distance(int x, int y) {
-	         System.out.println( this.x + " " + this.y);
-	   
-	         return Math.sqrt((x - this.x) * (x - this.x) + (y - this.y) * (y - this.y));
-	     }
-	     public double distance(Point secondPoint) {
-	         
-	        // return distance(secondPoint.x, secondPoint.y);
-	         System.out.println(+secondPoint.x+" "+ secondPoint.y);
-	         return distance(secondPoint.x, secondPoint.y);
-	         }
+	}
 
 
-
-	    public static class Main {
+ class Main {
 
 
 
 	   public static void main(String[] args) {
-	           Point first = new Point();
-	           Point second = new Point();
-	           first.setY(200);
-	           first.setX(100);
-	           second.setX(200);
-	           second.setY(700);
-	           System.out.printf("The distance between above two points is"+" %.1f "+"units\n", first.distance(second));
+	        // TODO Auto-generated method stub
 
-}
-	    }
-      }
+
+
+	       Point pt1, pt2;
+
+
+
+	       pt1 = new Point(100, 200);
+	        pt2 = new Point(200, 700);
+
+
+
+	       String pattern = "###.000";
+	        DecimalFormat df = new DecimalFormat(pattern);
+
+
+
+	       DistanceCalculator cd = new DistanceCalculator();
+	        System.out.println("The distance between above two points is: " + df.format(cd.calcDist(pt1, pt2)));
+
+
+
+	   }
+	}
