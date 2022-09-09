@@ -7,15 +7,15 @@ class
     Services
     Membership_plan
 method
-    indhor game
-    outdhor game
+    indoor game
+    outdoor game
     life time membership
     weekly------------------
-                    sorttuam
-    montholy----------------
-    tunament
+                    shortterm
+    monthly----------------
+    tournament
 
-singal value
+single value
     playeer id,name,gender,
 
 static value
